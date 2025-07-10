@@ -1,0 +1,88 @@
+﻿
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Gemini Veo 3 Prompt Generator By Arif</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+    input, textarea, button { width: 100%; margin: 10px 0; padding: 8px; }
+    #output { background: #f7f7f7; padding: 15px; border: 1px solid #ccc; margin-top: 20px; white-space: pre-wrap; }
+    label { font-weight: bold; display: block; margin-top: 20px; }
+    button { cursor: pointer; background-color: #007bff; color: white; border: none; }
+    button:hover { background-color: #0056b3; }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Veo 3 Prompt Generator</h1>
+
+  <label>Subjek Utama:</label>
+  <input id="subject" placeholder="Contoh: Wanita berhijab elegan">
+
+  <label>Aksi / Gerakan:</label>
+  <input id="action" placeholder="Contoh: Menunjukkan botol sambal sambil tersenyum">
+
+  <label>Setting / Latar:</label>
+  <input id="setting" placeholder="Contoh: Studio dengan lighting merah dramatis">
+
+  <label>Properti Kunci:</label>
+  <input id="props" placeholder="Contoh: Botol sambal, background hitam">
+
+  <label>Gaya Visual:</label>
+  <input id="visualStyle" placeholder="Contoh: Cinematic, kontras tinggi">
+
+  <label>Gerakan Kamera:</label>
+  <input id="camera" placeholder="Contoh: Zoom in ke close-up">
+
+  <label>Komposisi Gambar:</label>
+  <input id="composition" placeholder="Contoh: Close-up frontal, simetris">
+
+  <label>Pencahayaan:</label>
+  <input id="lighting" placeholder="Contoh: Dramatis dengan bayangan tajam">
+
+  <label>Palet Warna:</label>
+  <input id="color" placeholder="Contoh: Merah dan hitam dominan">
+
+  <label>Suara Latar:</label>
+  <input id="ambient" placeholder="Contoh: Suara studio dan klik kamera">
+
+  <label>Efek Suara:</label>
+  <input id="sfx" placeholder="Contoh: Botol diketuk ke meja">
+
+  <label>Musik:</label>
+  <input id="music" placeholder="Contoh: Musik chill instrumental">
+
+  <label>Dialog / Narasi:</label>
+  <textarea id="dialogue" rows="3" placeholder='Contoh: Wanita: "Produk ini nyaman digunakan..."'></textarea>
+
+  <label>Emosi / Ekspresi:</label>
+  <input id="emotion" placeholder="Contoh: Percaya diri dan ekspresi meyakinkan">
+
+  <label>Urutan Aksi:</label>
+  <textarea id="sequence" rows="2" placeholder="Contoh: Mulai medium shot, lalu zoom in, botol diangkat, logo muncul dari api"></textarea>
+
+  <label>Detail Kecil:</label>
+  <input id="details" placeholder="Contoh: Efek cabai meledak, pantulan cahaya di botol">
+
+  <button onclick="generatePrompt()">🔮 Buat Prompt</button>
+
+  <h2>🎬 Prompt Output:</h2>
+  <div id="output"></div>
+
+  <script>
+    function generatePrompt() {
+      const g = id => document.getElementById(id).value.trim();
+      const prompt = `A scene showing ${g("subject")} in ${g("setting")}, ${g("action")}.
+The scene includes ${g("props")}, captured in a ${g("composition")} shot with ${g("lighting")} and a color palette of ${g("color")}.
+The camera performs ${g("camera")} in a ${g("visualStyle")} style.
+Ambient sound: ${g("ambient")}, with SFX: ${g("sfx")} and music: ${g("music")}.
+Dialogue: ${g("dialogue")}
+The character expresses ${g("emotion")}. Action flow: ${g("sequence")}.
+Extra visual details: ${g("details")}.`;
+      document.getElementById("output").textContent = prompt;
+    }
+  </script>
+
+</body>
+</html>
