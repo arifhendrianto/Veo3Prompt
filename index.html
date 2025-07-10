@@ -1,65 +1,128 @@
-<script>
-function translate(word) {
-    const dict = {
-        "wanita": "woman", "berhijab": "wearing a hijab", "elegan": "elegant",
-        "menunjukkan": "showing", "botol": "bottle", "sambal": "chili sauce", "sambil": "while", "tersenyum": "smiling",
-        "studio": "studio", "lighting": "lighting", "merah": "red", "dramatis": "dramatic",
-        "background": "background", "hitam": "black",
-        "cinematic": "cinematic", "kontras tinggi": "high contrast",
-        "zoom in": "zoom in", "ke close-up": "into a close-up",
-        "close-up": "close-up", "frontal": "frontal", "simetris": "symmetric",
-        "dramatis dengan bayangan tajam": "dramatic with sharp shadows",
-        "warna": "color", "dominant": "dominant",
-        "studio dan klik kamera": "studio ambiance and camera clicks",
-        "diketuk ke meja": "tapped on the table",
-        "musik chill instrumental": "chill instrumental music",
-        "produk ini nyaman digunakan untuk aktivitas harian": "this product is comfortable for daily activities",
-        "percaya diri dan ekspresi meyakinkan": "confident and convincing expression",
-        "efek cabai meledak": "exploding chili effects",
-        "pantulan cahaya": "light reflections",
-        // ... kamu bisa tambah lagi sesuai kebutuhan
-    };
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Veo 3 Prompt Generator - Bahasa Indonesia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+    input, textarea, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+    }
+    #output {
+      white-space: pre-wrap;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    button {
+      width: auto;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
 
-    return word.split(" ").map(w => dict[w.toLowerCase()] || w).join(" ");
-}
+  <h1>🎬 Veo 3 Prompt Generator (Versi Bahasa Indonesia)</h1>
 
-async function generatePrompt() {
-  const get = id => document.getElementById(id).value.trim();
+  <label>1. Subjek Utama</label>
+  <input id="subject" value="Seorang wanita berhijab merah elegan, mengenakan kebaya Jawa modern dengan ekspresi percaya diri">
 
-  const data = {
-    subject: get("subject"),
-    action: get("action"),
-    setting: get("setting"),
-    props: get("props"),
-    visualStyle: get("visualStyle"),
-    camera: get("camera"),
-    composition: get("composition"),
-    lighting: get("lighting"),
-    color: get("color"),
-    ambient: get("ambient"),
-    sfx: get("sfx"),
-    music: get("music"),
-    dialogue: get("dialogue"),
-    emotion: get("emotion"),
-    sequence: get("sequence"),
-    details: get("details")
-  };
+  <label>2. Aksi / Gerakan</label>
+  <input id="action" value="Mengangkat botol sambal ke arah kamera sambil tersenyum dan menatap penonton">
 
-  // translate each field (basic word-by-word)
-  const translated = {};
-  for (let key in data) {
-    translated[key] = translate(data[key]);
-  }
+  <label>3. Setting / Latar</label>
+  <input id="setting" value="Studio profesional dengan pencahayaan merah-hitam dan latar belakang tematik pedas">
 
-  const prompt = `A scene showing ${translated.subject} in ${translated.setting}, ${translated.action}.
-The scene includes ${translated.props}, captured in a ${translated.composition} shot with ${translated.lighting} and a color palette of ${translated.color}.
-The camera performs ${translated.camera} in a ${translated.visualStyle} style.
-Ambient sound: ${translated.ambient}, with SFX: ${translated.sfx} and music: ${translated.music}.
-Dialogue: ${translated.dialogue}
-The character expresses ${translated.emotion}. Action flow: ${translated.sequence}.
-Extra visual details: ${translated.details}.`;
+  <label>4. Properti Kunci</label>
+  <input id="props" value="Botol Sambel Mas Hendra, background merah-hitam, meja kaca, lampu spotlight">
 
-  document.getElementById("output").textContent = prompt;
-  localStorage.setItem("veo3_prompt", JSON.stringify(data));
-}
-</script>
+  <label>5. Gaya Visual</label>
+  <input id="visualStyle" value="Sinematik dengan pencahayaan kontras tinggi dan nuansa iklan premium">
+
+  <label>6. Gerakan Kamera</label>
+  <input id="cameraMovement" value="Zoom perlahan dari medium shot ke close-up, low-angle saat botol diangkat">
+
+  <label>7. Komposisi Gambar</label>
+  <input id="composition" value="Close-up simetris dengan fokus tajam pada wajah dan produk">
+
+  <label>8. Pencahayaan</label>
+  <input id="lighting" value="Sorotan dari kiri dengan bayangan dramatis dan efek cahaya merah menyala di belakang">
+
+  <label>9. Palet Warna</label>
+  <input id="colorPalette" value="Merah menyala, hitam pekat, aksen emas dari pantulan label botol">
+
+  <label>10. Suara Latar</label>
+  <input id="ambientSound" value="Suara studio, klik kamera, dan kesunyian yang dramatis">
+
+  <label>11. Efek Suara</label>
+  <input id="soundEffects" value="Botol diketuk ke meja, letupan cabai digital di latar belakang">
+
+  <label>12. Musik</label>
+  <input id="music" value="Musik instrumental modern yang membangun intensitas dan kesan premium">
+
+  <label>13. Dialog</label>
+  <textarea id="dialogue" rows="3">Wanita: "Produk ini nyaman digunakan untuk aktivitas harian. Kualitasnya enggak main-main."</textarea>
+
+  <label>14. Emosi Karakter</label>
+  <input id="emotion" value="Percaya diri, ekspresif, dan meyakinkan dengan tatapan fokus ke kamera">
+
+  <label>15. Urutan Aksi</label>
+  <textarea id="sequence" rows="2">Mulai dari medium shot, perlahan zoom in ke close-up, wanita mengangkat botol, efek ledakan cabai muncul, kamera fokus ke logo di akhir</textarea>
+
+  <label>16. Detail Kecil</label>
+  <input id="details" value="Efek visual cabai meledak, pantulan cahaya di botol, embers merah beterbangan">
+
+  <br>
+  <button onclick="generatePrompt()">🎥 Buat Prompt</button>
+  <button onclick="copyPrompt()">📋 Salin Prompt</button>
+
+  <h3>📄 Prompt Output:</h3>
+  <div id="output"></div>
+
+  <script>
+    function g(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function generatePrompt() {
+      const output = 
+`Sebuah adegan menampilkan ${g("subject")} di ${g("setting")}. 
+Subjek melakukan aksi: ${g("action")}, berinteraksi dengan ${g("props")}.
+Gaya visual yang digunakan adalah ${g("visualStyle")}, dengan pencahayaan ${g("lighting")} dan palet warna ${g("colorPalette")}. 
+Komposisi gambar: ${g("composition")}. 
+Gerakan kamera mencakup: ${g("cameraMovement")}.
+Suara latar: ${g("ambientSound")}, dilengkapi efek suara: ${g("soundEffects")} dan musik: ${g("music")}.
+Dialog:\n${g("dialogue")}
+
+Karakter menunjukkan emosi: ${g("emotion")}.
+Urutan aksi: ${g("sequence")}.
+Detail tambahan: ${g("details")}.`;
+
+      document.getElementById("output").textContent = output;
+    }
+
+    function copyPrompt() {
+      navigator.clipboard.writeText(document.getElementById("output").textContent)
+        .then(() => alert("Prompt disalin ke clipboard!"));
+    }
+  </script>
+
+</body>
+</html>
