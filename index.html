@@ -120,13 +120,7 @@
     }
 
     function generatePrompt() {
-      const prompt = `A scene showing ${g("subject")} in ${g("setting")}, ${g("action")}.
-The scene includes ${g("props")}, captured in a ${g("composition")} shot with ${g("lighting")} and a color palette of ${g("color")}.
-The camera performs ${g("camera")} in a ${g("visualStyle")} style.
-Ambient sound: ${g("ambient")}, with SFX: ${g("sfx")} and music: ${g("music")}.
-Dialogue: ${g("dialogue")}
-The character expresses ${g("emotion")}. Action flow: ${g("sequence")}.
-Extra visual details: ${g("details")}."; 
+      const prompt = `A scene showing ${g("subject")} in ${g("setting")}, ${g("action")}.\nThe scene includes ${g("props")}, captured in a ${g("composition")} shot with ${g("lighting")} and a color palette of ${g("color")}.\nThe camera performs ${g("camera")} in a ${g("visualStyle")} style.\nAmbient sound: ${g("ambient")}, with SFX: ${g("sfx")} and music: ${g("music")}.\nDialogue: ${g("dialogue")}\nThe character expresses ${g("emotion")}. Action flow: ${g("sequence")}.\nExtra visual details: ${g("details")}.`;
       document.getElementById("output").textContent = prompt;
       localStorage.setItem("veo3_prompt", JSON.stringify(getAllInputs()));
     }
@@ -164,6 +158,6 @@ Extra visual details: ${g("details")}.";
 
     window.onload = loadInputs;
   </script>
-<!-- update -->
+
 </body>
 </html>
